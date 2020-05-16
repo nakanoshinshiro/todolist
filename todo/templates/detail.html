@@ -1,21 +1,20 @@
 {%extends "base.html"%}
 
 
-{%block header%}
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4">詳細画面</h1>
-        <p class="lead">Todoの詳細です</p>
-    </div>
-</div>
-{%endblock header%}
-
 {%block content%}
 <div class = "container">
+    <div class="container mt-5 mb-5">
+        <ol class="breadcrumb  mt-1 mb-4">
+            <li class="breadcrumb-item">
+                <a href="{% url 'list' %}">Todoリスト</a>
+            </li>
+            <li class="breadcrumb-item active">詳細</li>
+        </ol>
     <div class="alert alert-success" role="alert">
         <p>タイトル：{{object.title}}</p>
         <p>メモ：{{object.memo}}</p>
-        <p>期日：{{object.duedate}}</p>  
+        <p>期日：{{object.duedate}}</p> 
+        <p>優先度：{{object.get_priority_display}} 
     </div>
 </div>
 {%endblock content%}

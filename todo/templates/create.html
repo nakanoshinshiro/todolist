@@ -1,11 +1,20 @@
 {% extends "base.html"%}
+{% load bootstrap %}
 
 {%block content %}
+<div class="container mt-5 mb-5">
+    <ol class="breadcrumb  mt-1 mb-4">
+        <li class="breadcrumb-item">
+            <a href="{% url 'list' %}">Todoリスト</a>
+        </li>
+        <li class="breadcrumb-item active">新規作成</li>
+    </ol>
+<div class="container mt-5">
 <form action = "" method ="POST">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type = "submit" value = "作成する">
+    {{form|bootstrap}}
+    <input type = "submit" value = "作成する" class="btn btn-primary mt-4 btn-lg">
 </form>
-
+</div>
 
 {%endblock content %}
