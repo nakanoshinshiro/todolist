@@ -19,6 +19,11 @@ class TodoCreate(LoginRequiredMixin,CreateView):
     fields = ("title","memo","priority","duedate")
     success_url = reverse_lazy("todo:list")
 
+    def form_valid(self,form):
+        todomodel = form.save(commit=False)
+        todomodel.creator = self.request.user
+        return super(TodoCreate,self).form_valid(form)
+
 
 class TodoDelete(LoginRequiredMixin,DeleteView):
     template_name = "delete.html"

@@ -9,5 +9,7 @@ class TodoModel(models.Model):
     priority = models.CharField(
         max_length=10,choices=PRIORITY,verbose_name="優先度")
     duedate = models.DateField(verbose_name="期限")
+    creator = models.ForeignKey("auth.User",  on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.title

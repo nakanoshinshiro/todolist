@@ -15,6 +15,7 @@
     <a href="{% url "todo:create"%}" class="btn btn-info btn-lg mb-4" tabindex="-1" role="button" aria-disabled="true">
         新規作成</a>
     {%for item in object_list%}
+    {% if item.creator.id == request.user.id%}
     <div class="alert alert-{{item.priority}}" role="alert">
         <p><strong>{{item.title}}</strong><br>・期日：{{item.duedate}}<br>・優先度：{{item.get_priority_display}}</p>
         <a href="{% url "todo:update" item.pk%}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">
@@ -24,6 +25,7 @@
         <a href="{% url "todo:detail"  item.pk%}" class="btn btn-success" tabindex="-1" role="button"
             aria-disabled="true">詳細</a>
     </div>
+    {%endif%}
     {%endfor%}
 
 </div>
