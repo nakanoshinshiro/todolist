@@ -1,0 +1,32 @@
+{%extends "account/base.html"%}
+{% load bootstrap %}
+{% load crispy_forms_tags %}
+{%load static%}
+{% load crispy_forms_tags%}
+{%block css%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{%endblock css%}
+{%block title%}新規登録{%endblock title%}
+{%block content%}
+<div class="form-bottom">
+    <img class="rounded mx-auto d-block" src="{% static 'icon/logo.png' %}" alt="" width="72" height="72">
+
+    <h1 class="h3 mb-3 font-weight-normal text-center mb-3 mt-3">新規登録</h1>
+
+    <form method='POST' role="form" action="" class="form-signin">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <style>
+            #hint_id_username,
+            #hint_id_password1,
+            #hint_id_password2{
+                display: none;
+            }
+        </style>
+        <button type="submit" class="btn btn-lg btn-primary btn-block mb-3">新規登録</button>
+登録済みですか？<a class="btn btn-link" href="{% url "account:login" %}">ログインはこちら</a></p>
+<p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    </form>
+
+</div>
+{%endblock%}

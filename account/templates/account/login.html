@@ -1,0 +1,24 @@
+{%extends "account/base.html"%}
+{%load static%}
+{%load bootstrap%}
+{%block css%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{%endblock css%}
+{%block title%}ログイン{%endblock title%}
+{%block content%}
+  <form class="form-signin" method='POST' role="form" action="" >
+<img class="rounded mx-auto d-block" src="{% static 'icon/logo.png' %}" alt="" width="72" height="72">
+<h1 class="h3 mb-3 font-weight-normal text-center mb-3 mt-3">ログイン</h1>
+
+  {% csrf_token %}
+  {{ form|bootstrap }}
+<div class="checkbox mb-3">
+  <label>
+    <input type="checkbox" value="remember-me"> パスワードを保存する
+  </label>
+</div>
+<button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button><br>
+<p>初めてご利用ですか？<a class="btn btn-link" href="{% url "account:signup" %}">新規登録はこちら</a></p>
+<p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+</form>
+{%endblock content%}

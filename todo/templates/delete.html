@@ -5,7 +5,7 @@
     <div class="container mt-5 mb-5">
         <ol class="breadcrumb  mt-1 mb-4">
             <li class="breadcrumb-item">
-                <a href="{% url 'list' %}">Todoリスト</a>
+                <a href="{% url 'todo:list' %}">Todoリスト</a>
             </li>
             <li class="breadcrumb-item active">削除</li>
         </ol>
@@ -18,7 +18,7 @@
 
         </form></div>
         <div class="ml-3">
-        <a class="btn btn-secondary" href="{%url "list" %}">キャンセル</a></div>
+        <a class="btn btn-secondary" href="{%url "todo:list" %}">キャンセル</a></div>
     </div>
 </div>
 {%endblock content%}
